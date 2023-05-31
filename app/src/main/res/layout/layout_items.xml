@@ -28,6 +28,7 @@
         tools:text="The Birds"
         android:ellipsize="end"
         android:maxLines="1"
+        android:fontFamily="@font/titilliumweb_light"
         android:textColor="@color/white"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintEnd_toEndOf="parent"

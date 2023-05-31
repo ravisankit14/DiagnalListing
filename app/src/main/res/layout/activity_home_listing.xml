@@ -64,6 +64,8 @@
                 android:padding="@dimen/_14dp"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_20sp"
+                tools:text="Movie"
+                android:fontFamily="@font/titilliumweb_regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@id/iv_back"
