@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "867608075439",
+    "project_id": "diagnal-assignment-47dfa",
+    "storage_bucket": "diagnal-assignment-47dfa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867608075439:android:1a00f57c88646f6d76085a",
+        "android_client_info": {
+          "package_name": "com.ravi.diagnal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB-VdpuF4XFYUJKpGkdIhSOaHMjxncI94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

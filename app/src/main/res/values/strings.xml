@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DigiFlix</string>
+    <string name="current_value">Current Value:</string>
+    <string name="total_investment">Total Investment:</string>
+    <string name="today_s_profit_amp_loss"><![CDATA[Today\'s Profit & Loss:]]></string>
+    <string name="profit_amp_loss"><![CDATA[Profit & Loss:]]></string>
+
+    <string name="Rs">\u20B9 %s</string>
+    <string name="text_ltp">LTP: <b>\u20B9 %s</b></string>
+    <string name="text_profit_loss">P/L: <b>\u20B9 %s</b></string>
+    <string name="search_movie">Search movie</string>
+
+</resources>

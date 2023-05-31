@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name="com.ravi.diagnal.DiagnalApplication"
+        android:icon="@mipmap/ic_icon"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.DiagnalAssignment">
+        <activity
+            android:name="com.ravi.diagnal.ui.HomeListingActivity"
+            android:configChanges="orientation"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
