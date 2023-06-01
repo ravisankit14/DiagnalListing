@@ -5,7 +5,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.lifecycle.*
 import com.ravi.diagnal.api.loadJsonFile
-import com.ravi.diagnal.util.Event
 import com.ravi.libapi.response.ListingData
 import com.ravi.libapi.util.Resource
 import kotlinx.coroutines.*
@@ -16,11 +15,11 @@ class HomeListingViewModel @Inject constructor(application: Application): Androi
     private val _contentData = MutableLiveData<Resource<ListingData>>()
     val contentData: LiveData<Resource<ListingData>> = _contentData
 
-    private val _queryText = MutableLiveData<Event<String>>()
-    val queryText: LiveData<Event<String>> = _queryText
+    private val _queryText = MutableLiveData<String?>()
+    val queryText: LiveData<String?> = _queryText
 
     private var searchJob: Job? = null
-    private val DEBOUNCE_DELAY = 300L
+    private val DEBOUNCE_DELAY = 200L
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
     var currentFileIndex = 1
@@ -55,7 +54,7 @@ class HomeListingViewModel @Inject constructor(application: Application): Androi
 
     val queryTextListener = object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
-            _queryText.postValue(Event(s.toString()))
+            _queryText.postValue(s.toString())
         }
 
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -69,7 +68,7 @@ class HomeListingViewModel @Inject constructor(application: Application): Androi
             if(s.toString().length >= 3) {
                 searchJob = coroutineScope.launch {
                     delay(DEBOUNCE_DELAY)
-                    _queryText.postValue(Event(s.toString()))
+                    _queryText.postValue(s.toString())
                 }
             }
         }

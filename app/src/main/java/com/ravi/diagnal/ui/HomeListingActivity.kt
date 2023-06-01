@@ -7,10 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ravi.diagnal.DiagnalApplication
 import com.ravi.diagnal.databinding.ActivityHomeListingBinding
-import com.ravi.diagnal.util.EventObserver
-import com.ravi.diagnal.util.PaginationScrollListener
-import com.ravi.diagnal.util.getGridColumnCount
-import com.ravi.diagnal.util.getViewModel
+import com.ravi.diagnal.util.*
 import com.ravi.libapi.response.Content
 import com.ravi.libapi.util.Status
 import javax.inject.Inject
@@ -53,16 +50,19 @@ class HomeListingActivity : AppCompatActivity() {
             mBinding.clHeaderSearch.visibility = View.GONE
             mBinding.edtSearch.text.clear()
             mAdapter.filter.filter("")
+            mBinding.edtSearch.hideKeyboard()
+            mAdapter.notifyDataSetChanged()
         }
 
         mBinding.ivSearch.setOnClickListener {
             mBinding.clHeaderTitle.visibility = View.GONE
             mBinding.clHeaderSearch.visibility = View.VISIBLE
+            mBinding.edtSearch.showKeyboard()
         }
 
         mBinding.rvContent.addOnScrollListener(object : PaginationScrollListener(gridLayoutManager) {
             override fun loadMoreItems() {
-                if(!mViewModel.lastPage)
+                if(!mViewModel.lastPage && mViewModel.queryText.value.isNullOrEmpty())
                     mViewModel.fetchContentData()
             }
 
@@ -89,11 +89,10 @@ class HomeListingActivity : AppCompatActivity() {
             }
         }
 
-        mViewModel.queryText.observe(this, EventObserver {
+        mViewModel.queryText.observe(this) {
             mAdapter.filter.filter(it)
-        })
+        }
     }
-
     private fun renderList(data: ArrayList<Content>) {
         mAdapter.addData(data)
     }

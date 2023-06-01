@@ -43,17 +43,17 @@ class ContentAdapter(private val mContext: Context, private var contentList: Arr
         contentList.addAll(data)
         tempListOriginal.addAll(data)
         filterListOfObjects.addAll(data)
-
         notifyDataSetChanged()
     }
 
-    class DataViewHolder(private val binding: LayoutItemsBinding,private val mContext: Context, private val searchQuery: String): BaseViewHolder(binding.root){
+    inner class DataViewHolder(private val binding: LayoutItemsBinding,private val mContext: Context, private val searchQuery: String): BaseViewHolder(binding.root){
         override fun bind(lot: Content, position: Int) {
 
             if(searchQuery.isNotEmpty()) {
                 val highlightedText = highlightText(lot.name, searchQuery)
                 binding.tvName.text = highlightedText
             }else{
+                binding.tvName.setTextColor(Color.WHITE)
                 binding.tvName.text = lot.name
             }
 
