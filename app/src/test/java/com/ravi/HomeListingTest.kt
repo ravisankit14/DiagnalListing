@@ -33,6 +33,9 @@ class HomeListingTest {
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
+    @get:Rule
+    val instantExecutorRule = InstantTaskExecutorRule()
+
     @Mock
     lateinit var context: Context
 
@@ -41,9 +44,6 @@ class HomeListingTest {
 
     @Mock
     lateinit var assetManager: AssetManager
-
-    @get:Rule
-    val instantExecutorRule = InstantTaskExecutorRule()
 
     @Before
     fun setup(){
