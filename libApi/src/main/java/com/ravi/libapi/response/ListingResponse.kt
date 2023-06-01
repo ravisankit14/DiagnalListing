@@ -1,11 +1,9 @@
 package com.ravi.libapi.response
 
 import com.google.gson.annotations.SerializedName
-
 data class DiagnalResponse(
     val page: ListingData
 )
-
 data class ListingData(
 
     @SerializedName("title")

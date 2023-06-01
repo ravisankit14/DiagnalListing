@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 class HomeListingViewModel @Inject constructor(application: Application): AndroidViewModel(application) {
 
-    private val _contentData = MutableLiveData<Resource<ListingData>>()
+    val _contentData = MutableLiveData<Resource<ListingData>>()
     val contentData: LiveData<Resource<ListingData>> = _contentData
 
     private val _queryText = MutableLiveData<String?>()
